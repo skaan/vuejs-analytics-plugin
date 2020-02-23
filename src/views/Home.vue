@@ -1,18 +1,34 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h1>This is a home page</h1>
+    <input v-model="input" v-track-change="changeInput" />
+    <button v-on:click="logInput" v-track-click="clickButton">Click Me</button>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
 export default {
   name: "Home",
-  components: {
-    HelloWorld
+  data() {
+    return {
+      changeInput: "changeInput",
+      clickButton: "clickButton",
+      input: ""
+    };
+  },
+  methods: {
+    logInput() {
+      console.log(this.input);
+    }
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+</style>
